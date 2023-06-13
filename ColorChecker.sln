@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33717.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChecker.DistributedSystems", "ColorChecker.DistributedSystems\ColorChecker.DistributedSystems.csproj", "{8495EAC6-33D2-44B7-ADAE-763599665F51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-DistributedSystems", "1-DistributedSystems", "{5E73B15D-0105-438F-A139-0832E39C6D0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Domain", "2-Domain", "{5CD75A59-6E90-40E1-AA40-C6DE5F029A97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infrastructure", "3-Infrastructure", "{E5C62330-332F-4100-B44A-B65397285A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChecker.Domain.Services", "ColorChecker.Domain.Services\ColorChecker.Domain.Services.csproj", "{36AA474A-9BFA-4758-81C7-DF4CE0E99A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChecker.Domain", "ColorChecker.Domain\ColorChecker.Domain.csproj", "{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChecker.Infrastructure.DataAccess", "ColorChecker.Infrastructure.DataAccess\ColorChecker.Infrastructure.DataAccess.csproj", "{300DD99B-DC44-48B1-A2F0-B591AC5C4C30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8495EAC6-33D2-44B7-ADAE-763599665F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8495EAC6-33D2-44B7-ADAE-763599665F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8495EAC6-33D2-44B7-ADAE-763599665F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8495EAC6-33D2-44B7-ADAE-763599665F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AA474A-9BFA-4758-81C7-DF4CE0E99A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AA474A-9BFA-4758-81C7-DF4CE0E99A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AA474A-9BFA-4758-81C7-DF4CE0E99A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AA474A-9BFA-4758-81C7-DF4CE0E99A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300DD99B-DC44-48B1-A2F0-B591AC5C4C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300DD99B-DC44-48B1-A2F0-B591AC5C4C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300DD99B-DC44-48B1-A2F0-B591AC5C4C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300DD99B-DC44-48B1-A2F0-B591AC5C4C30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8495EAC6-33D2-44B7-ADAE-763599665F51} = {5E73B15D-0105-438F-A139-0832E39C6D0C}
+		{36AA474A-9BFA-4758-81C7-DF4CE0E99A95} = {5CD75A59-6E90-40E1-AA40-C6DE5F029A97}
+		{C9C0CB7A-D57C-49F1-9E6A-2BF77D9D317B} = {5CD75A59-6E90-40E1-AA40-C6DE5F029A97}
+		{300DD99B-DC44-48B1-A2F0-B591AC5C4C30} = {E5C62330-332F-4100-B44A-B65397285A45}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {470DE464-E6CB-4FF6-A913-A0404607A469}
+	EndGlobalSection
+EndGlobal
