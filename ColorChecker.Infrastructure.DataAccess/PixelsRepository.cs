@@ -1,4 +1,5 @@
 ﻿using ColorChecker.Domain;
+using ColorChecker.Infrastructure.DataAccess.DataEntities;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -19,7 +20,14 @@ namespace ColorChecker.Infrastructure.DataAccess
         public Pixel Create(Pixel pixel)
         {
             var pixels = File.ReadLines(_storageFilePath).ToList();
-            pixels.Add(JsonConvert.SerializeObject(pixel));
+            var newPixelRecord = new PixelDataEntity
+            {
+                Name = pixel.Name,
+                Color = pixel.Color,
+                Intensity = pixel.Intensity,
+                Date = DateTime.Now
+            };
+            pixels.Add(JsonConvert.SerializeObject(newPixelRecord));
             File.WriteAllLines(_storageFilePath, pixels);
 
             return pixel;

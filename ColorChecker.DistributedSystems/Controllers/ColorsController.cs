@@ -25,18 +25,21 @@ namespace ColorChecker.DistributedSystems.Controllers
         /// <returns></returns>
         public IHttpActionResult Post([FromBody] List<string> values)
         {
+
             try
             {
                 PixelDTO pxDTO = new PixelDTO().MappingPayloadToDTO(values);
-                return Ok();
+                _pixelsServices.RegisterNewColor(pxDTO);
+
+                return Ok(pxDTO);
             }
             catch (ParsingReqPayloadException ex)
             {
-                return BadRequest($"Error while parsing values: {ex.Message}");
+                return BadRequest($"Error when parsing values: {ex.Message}");
             }
-            catch (ArgumentException ex)
+            catch (SavingDataException ex)
             {
-                return BadRequest($"Error while validating data: {ex.Message}");
+                return BadRequest($"Error when saving data in database: {ex.Message}");
             }
             catch (Exception ex)
             {

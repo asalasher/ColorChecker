@@ -49,6 +49,8 @@ namespace ColorChecker.Domain.Services
                 throw new ParsingReqPayloadException("the intensity value must be an integer");
             }
 
+            pxDTO.Name = payload[2];
+
             return pxDTO;
         }
 

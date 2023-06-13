@@ -7,7 +7,7 @@ namespace ColorChecker.Domain
 {
     public class PixelsServices : IPixelsServices
     {
-        private IPixelsRepository _pixelsRepository;
+        private readonly IPixelsRepository _pixelsRepository;
 
         public PixelsServices(IPixelsRepository pxRepository)
         {

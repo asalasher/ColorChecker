@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ColorChecker.Domain.Services.CustomExceptions;
 using System.Collections.Generic;
 
 namespace ColorChecker.Domain
@@ -15,12 +15,12 @@ namespace ColorChecker.Domain
 
             if (!validColors.Contains(Color))
             {
-                throw new ArgumentException("Colors must me Red, Green or Blue");
+                throw new ParsingReqPayloadException("Colors must me Red, Green or Blue");
             }
 
             if (Intensity < 0 || Intensity > 100)
             {
-                throw new ArgumentException("Intensity must be between 0 and 100");
+                throw new ParsingReqPayloadException("Intensity must be between 0 and 100");
             }
 
             return true;
