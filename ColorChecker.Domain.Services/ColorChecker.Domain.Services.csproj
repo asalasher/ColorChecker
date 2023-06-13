@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\SavingDataException.cs" />
+    <Compile Include="CustomExceptions\ParsingPayloadException.cs" />
     <Compile Include="DTOs\pixelDTO.cs" />
-    <Compile Include="ColorsServices.cs" />
+    <Compile Include="Contracts\IPixelsServices.cs" />
+    <Compile Include="PixelsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +54,11 @@
       <Project>{c9c0cb7a-d57c-49f1-9e6a-2bf77d9d317b}</Project>
       <Name>ColorChecker.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ColorChecker.Infrastructure.DataAccess\ColorChecker.Infrastructure.DataAccess.csproj">
+      <Project>{300dd99b-dc44-48b1-a2f0-b591ac5c4c30}</Project>
+      <Name>ColorChecker.Infrastructure.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

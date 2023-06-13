@@ -1,39 +1,48 @@
-﻿using System;
+﻿using ColorChecker.Domain;
+using ColorChecker.Domain.Services;
+using ColorChecker.Domain.Services.CustomExceptions;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace ColorChecker.DistributedSystems.Controllers
 {
     public class ColorsController : ApiController
     {
-        // GET: api/Colors
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly IPixelsServices _pixelsServices;
 
-        // GET: api/Colors/5
-        public string Get(int id)
+        public ColorsController(IPixelsServices pxServices)
         {
-            return "value";
+            _pixelsServices = pxServices;
         }
 
         // POST: api/Colors
-        public void Post([FromBody]string value)
+
+        /// <summary>
+        /// Endpoint to register new pixels in the system
+        /// </summary>
+        /// <param name="values">list of values to create a new pixel</param>
+        /// <returns></returns>
+        public IHttpActionResult Post([FromBody] List<string> values)
         {
+            try
+            {
+                PixelDTO pxDTO = new PixelDTO().MappingPayloadToDTO(values);
+                return Ok();
+            }
+            catch (ParsingReqPayloadException ex)
+            {
+                return BadRequest($"Error while parsing values: {ex.Message}");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest($"Error while validating data: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // PUT: api/Colors/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Colors/5
-        public void Delete(int id)
-        {
-        }
     }
 }
