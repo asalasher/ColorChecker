@@ -4,7 +4,7 @@ using Xunit;
 
 namespace PixelTestSuite
 {
-    public class PixelTestSuite
+    public class PixelEntityTestSuite
     {
 
         [Fact]
@@ -26,7 +26,7 @@ namespace PixelTestSuite
         }
 
         [Fact]
-        public void Validate_InputInvalidDTO_ReturnException()
+        public void Validate_InputInvalidIntensityDTO_ReturnException()
         {
             // Arrange
             var pixel = new Pixel
@@ -34,6 +34,24 @@ namespace PixelTestSuite
                 Color = "Red",
                 Intensity = 200,
                 Name = "Test2",
+            };
+
+            // Act
+            var exception = Record.Exception(() => { pixel.Validate(); });
+
+            // Assert
+            Assert.IsType<ParsingReqPayloadException>(exception);
+        }
+
+        [Fact]
+        public void Validate_InputInvalidColorDTO_ReturnException()
+        {
+            // Arrange
+            var pixel = new Pixel
+            {
+                Color = "Yellow",
+                Intensity = 90,
+                Name = "Test3",
             };
 
             // Act

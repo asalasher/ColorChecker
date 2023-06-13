@@ -16,10 +16,12 @@ namespace ColorChecker.Domain
 
         public PixelDTO RegisterNewColor(PixelDTO pxDTO)
         {
-            Pixel pixel = pxDTO.MappingToDomainEntity();
 
             try
             {
+                Pixel pixel = pxDTO.MappingToDomainEntity();
+                pixel.Validate();
+
                 var insertedPixel = _pixelsRepository.Create(pixel);
                 return pxDTO;
             }

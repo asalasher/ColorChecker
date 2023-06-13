@@ -2,8 +2,8 @@
 using ColorChecker.Infrastructure.DataAccess.DataEntities;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace ColorChecker.Infrastructure.DataAccess
 {
@@ -19,6 +19,24 @@ namespace ColorChecker.Infrastructure.DataAccess
 
         public Pixel Create(Pixel pixel)
         {
+            string jsonRawData = File.ReadAllText(_storageFilePath);
+            List<PixelDataEntity> listOfPixelsDataEntities = JsonConvert.DeserializeObject<List<PixelDataEntity>>(jsonRawData);
+            var newPixelRecord = new PixelDataEntity
+            {
+                Name = pixel.Name,
+                Color = pixel.Color,
+                Intensity = pixel.Intensity,
+                Date = DateTime.UtcNow
+            };
+            listOfPixelsDataEntities.Add(newPixelRecord);
+            File.WriteAllText(_storageFilePath, JsonConvert.SerializeObject(listOfPixelsDataEntities));
+
+            return pixel;
+        }
+
+        /*
+        public Pixel Create(Pixel pixel)
+        {
             var pixels = File.ReadLines(_storageFilePath).ToList();
             var newPixelRecord = new PixelDataEntity
             {
@@ -32,6 +50,7 @@ namespace ColorChecker.Infrastructure.DataAccess
 
             return pixel;
         }
+        */
 
     }
 }
